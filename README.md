@@ -126,7 +126,7 @@ if __name__ == "__main__":
     except EntradaInvalidaError as e:
         print(f"Error: {e}")
 ```
-## Shape con exceptions.
+## Shape() con exceptions.
 Se crea una excepción propia:
 ```python
 class GeometryError(Exception):
@@ -135,4 +135,23 @@ class GeometryError(Exception):
         self.mensaje = mensaje
         super().__init__(self.mensaje)
 
+```
+Y Se modifican las funciones, agregando el exception antes mencionado, por ejemplo: 
+````python
+if not all(isinstance(v, (int, float)) for v in [x, y]):
+    raise GeometryError("Las coordenadas deben ser numéricas.")
+
+if length <= 0 or width <= 0:
+    raise GeometryError("Largo y ancho deben ser positivos.")
+
+## Esto evita crear figuras con datos inválidos antes de que ocurra un error silencioso.
+````
+
+```python
+try:
+    s = self.compute_perimeter() / 2
+    return math.sqrt(s * (s - self.__a) * (s - self.__b) * (s - self.__c))
+except ValueError:
+    raise GeometryError("Error al calcular el área. Verifique los lados.")
+## Si los lados no forman un triángulo válido (o dan raíz negativa), se lanza un GeometryError con un mensaje claro.
 ```
