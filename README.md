@@ -1,4 +1,6 @@
 # POO-R6
+## Logo del grupo
+![Logo](https://github.com/NotName-K/POO-R2/blob/main/Screenshot%202025-09-23%20110719.png?raw=true)
 ## 5 puntos de pdc, con exceptions.
 ### 1. Operaciones basicas con entrada (1,2,"+")
 ```python
